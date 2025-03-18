@@ -12,6 +12,17 @@ const authLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
+    if (!validateInputData.isValidEmail(email.toLowerCase())) {
+      return res.status(400).json({ message: 'Email inválido', errorCode: 'INVALID_EMAIL' });
+    }
+
+    if (!validateInputData.isValidString(password)) {
+      return res.status(400).json({
+        message: 'Por favor fornece uma palavra-passe.',
+        errorCode: 'INVALID_PASSWORD',
+      });
+    }
+
     const user = await authService.getAuthUserByEmail(email.toLowerCase());
 
     if (!user) {

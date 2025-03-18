@@ -65,7 +65,7 @@ yarn start
 
 ### 7. Aceder à documentação através do swagger
 
-http://localhost:3000/api/v1/api-docs/
+http://localhost:3000/api-docs/
 
 ### 8. Utilizador de testes
 

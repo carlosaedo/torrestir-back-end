@@ -21,7 +21,7 @@ if (process.env.SWAGGER_ENABLED === 'true') {
     customSiteTitle: 'Torrestir Orders API',
   };
 
-  router.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, swaggerOptions));
+  router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile, swaggerOptions));
 }
 
 module.exports = router;
