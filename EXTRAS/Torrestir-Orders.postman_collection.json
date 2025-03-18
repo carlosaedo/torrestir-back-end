@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "d5241ec4-f1c6-41b7-9594-06891c903295",
+		"name": "Torrestir-Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26454674",
+		"_collection_link": "https://erre-boost-api.postman.co/workspace/%C3%89rre-WorkStation~bc852099-7a99-424b-896a-e5958310692e/collection/26454674-d5241ec4-f1c6-41b7-9594-06891c903295?action=share&source=collection_link&creator=26454674"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"carlosalexandreaedo@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password do user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/update-user-password/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"update-user-password",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um utilizador",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Carlos\",\r\n    \"last_name\": \"Aedo\",\r\n    \"email\" : \"carlosalexandreaedo@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/create-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update dados do utilizador",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"last_name\": \"Costa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Criar um encomenda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"Carlos Serra\",\r\n    \"address\": \"Av. da Liberdade, 45, 4715-134, Braga, Portugal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todas as encomendas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"Carlos Serra\",\r\n    \"address\": \"Av. da Liberdade, 45, 4715-134, Braga, Portugal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar detalhes de uma encomenda pelo ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"Carlos Serra\",\r\n    \"address\": \"Av. da Liberdade, 45, 4715-134, Braga, Portugal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/order/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar update de status suportados para as encomendas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"Carlos Serra\",\r\n    \"address\": \"Av. da Liberdade, 45, 4715-134, Braga, Portugal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/order/get/supported-statuses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"get",
+						"supported-statuses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar o estado de uma encomenda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"Carlos Serra\",\r\n    \"address\": \"Av. da Liberdade, 45, 4715-134, Braga, Portugal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/order/1/status/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"1",
+						"status",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancelar uma encomenda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc2FsZXhhbmRyZWFlZG9AZ21haWwuY29tIiwiZmlyc3ROYW1lIjoiQ2FybG9zIiwibGFzdE5hbWUiOiJBZWRvIiwidXNlcklkIjoxLCJpYXQiOjE3NDIyNTM5NjcsImV4cCI6MTc0Mjg1ODc2N30.-bHeMXh00NXg1Inb04Ke7Rh5BUpUOqoDYMjj60ZmVsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"Carlos Serra\",\r\n    \"address\": \"Av. da Liberdade, 45, 4715-134, Braga, Portugal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/order/1/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"1",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
